@@ -50,7 +50,7 @@ class SecurityConfig(
                 .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/sign-in", "/auth/sign-up", "/auth/reissue").anonymous()
                 .requestMatchers(HttpMethod.GET, "/users/me").authenticated()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
         }
 
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
